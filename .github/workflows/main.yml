@@ -8,23 +8,28 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [18.x]
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build --if-present
+
+      - name: Run tests
+        run: npm test
 
   coveralls:
     needs: build
@@ -32,9 +37,10 @@ jobs:
     steps:
       - name: Install nyc
         run: npm install nyc --no-save
+
       - name: Upload Coverage to Coveralls
- 	run: |
-    	  npx nyc report --reporter=text-lcov --report-dir=.nyc_output > coverage.lcov
+        run: |
+          npx nyc report --reporter=text-lcov --report-dir=.nyc_output > coverage.lcov
           npx coveralls < coverage.lcov
-  	env:
-    	  COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
