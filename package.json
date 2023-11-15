@@ -9,13 +9,14 @@
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "nyc": {
-    "all": true,
-    "reporter": [
-      "text",
-      "lcov"
-    ],
-    "report-dir": "coverage"
-  },
+  "report-dir": ".nyc_output",
+  "reporter": [
+    "text",
+    "text-summary",
+    "html"
+  ],
+  "all": true
+}
   "author": "",
   "license": "MIT",
   "devDependencies": {
