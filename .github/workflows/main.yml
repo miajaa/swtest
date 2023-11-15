@@ -14,6 +14,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
+
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
@@ -29,6 +30,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Install nyc
+        run: npm install nyc --no-save
       - name: Upload Coverage to Coveralls
         run: |
           npx nyc report --reporter=text-lcov > coverage.lcov
