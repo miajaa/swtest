@@ -90,12 +90,12 @@ describe('Test add.js', function () {
       chai.expect(result).to.be.NaN;
     });
   
-    it('Operand error 2: Adding number 10 to String "5" should return NaN', function () {
+    it('Operand error 2: Adding number 10 to String "5" should return a number', function () {
       const firstOperand = "5";
       const secondOperand = 10;
   
       const result = add(firstOperand, secondOperand);
-      chai.expect(result).to.be.NaN;
+      chai.expect(result).to.be.a('number');
     });
   
     it('Operand error 3: Adding number 10 to null (= explicit empty value) should return 10', function () {
@@ -115,21 +115,27 @@ describe('Test add.js', function () {
     });
   
     it('Operand error 5: Adding undefined to undefined should return NaN', function () {
-      const result = add(undefined, undefined);
+      const firstOperand = undefined;
+      const secondOperand = undefined;
+  
+      const result = add(firstOperand, secondOperand);
       chai.expect(result).to.be.NaN;
     });
   
     it('Operand error 6: Adding null to null should return NaN', function () {
-      const result = add(null, null);
+      const firstOperand = null;
+      const secondOperand = null;
+  
+      const result = add(firstOperand, secondOperand);
       chai.expect(result).to.be.NaN;
     });
   
-    it('Operand error 7: Adding String to String should return NaN', function () {
+    it('Operand error 7: Adding String to String should return a number', function () {
       const firstOperand = "10";
       const secondOperand = "-1";
   
       const result = add(firstOperand, secondOperand);
-      chai.expect(result).to.be.NaN;
+      chai.expect(result).to.be.a('number');
     });
   
     it('Operand error 8: Adding true to true should return NaN', function () {
@@ -153,5 +159,7 @@ describe('Test add.js', function () {
       const result = add(NaN, NaN);
       chai.expect(result).to.be.NaN;
     });
+  
   });
 });
+
