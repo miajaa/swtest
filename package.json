@@ -1,7 +1,7 @@
 {
   "name": "software-testing-assignment",
   "version": "1.0.0",
-  "description": "This is a project template for students participating in Software Testing course\r at Tampere University.",
+  "description": "This is a project template for students participating in Software Testing course at Tampere University.",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -9,14 +9,14 @@
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "nyc": {
-  "report-dir": ".nyc_output",
-  "reporter": [
-    "text",
-    "text-summary",
-    "html"
-  ],
-  "all": true
-}
+    "report-dir": ".nyc_output",
+    "reporter": [
+      "text",
+      "text-summary",
+      "html"
+    ],
+    "all": true
+  },
   "author": "",
   "license": "MIT",
   "devDependencies": {
@@ -29,10 +29,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arpitaChiddarwarTUNI/Software-Testing.git"
+    "url": "git+https://github.com/miajaa/swtest.git"
   },
   "bugs": {
-    "url": "https://github.com/arpitaChiddarwarTUNI/Software-Testing/issues"
+    "url": "https://github.com/miajaa/swtest/issues"
   },
-  "homepage": "https://github.com/arpitaChiddarwarTUNI/Software-Testing#readme"
+  "homepage": "https://github.com/miajaa/swtest#readme"
 }
