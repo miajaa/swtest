@@ -44,6 +44,6 @@ jobs:
       - name: Upload Coverage to Coveralls
         run: |
           npx nyc report --reporter=text-lcov --report-dir=.nyc_output
-          npx coveralls < .nyc_output/lcov-report/lcov.info
+          npx coveralls < .nyc_output/*.info
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
