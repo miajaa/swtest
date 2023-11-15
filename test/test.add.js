@@ -34,7 +34,7 @@ describe('Test add.js', function () {
     });
   
     it('Basic happy case 4: should return 0 when given +0 and -0.', function () {
-      const firstOperand = 0;
+      const firstOperand = +0;
       const secondOperand = -0;
       const expectedResult = 0;
   
