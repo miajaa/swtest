@@ -35,15 +35,19 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Install nyc
-        run: npm install nyc --no-save
+      - name: Install nyc and coveralls
+        run: npm install nyc coveralls --no-save
 
       - name: Create .nyc_output directory
         run: mkdir -p .nyc_output
 
+      - name: Print .nyc_output contents
+        run: ls -a .nyc_output
+
       - name: Upload Coverage to Coveralls
         run: |
           npx nyc report --reporter=text-lcov --report-dir=.nyc_output > coverage.lcov
+          cat coverage.lcov
           npx coveralls < coverage.lcov
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
