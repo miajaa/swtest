@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [18.x] 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -37,6 +37,9 @@ jobs:
     steps:
       - name: Install nyc
         run: npm install nyc --no-save
+
+      - name: Create .nyc_output directory
+        run: mkdir -p .nyc_output
 
       - name: Upload Coverage to Coveralls
         run: |
