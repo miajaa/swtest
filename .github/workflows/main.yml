@@ -28,7 +28,7 @@ jobs:
       - name: Build project
         run: npm run build --if-present
 
-      - name: Run tests
+      - name: Run tests and generate coverage
         run: npm test
 
   coveralls:
@@ -45,9 +45,6 @@ jobs:
         run: ls -a .nyc_output
 
       - name: Upload Coverage to Coveralls
-        run: |
-          npx nyc report --reporter=text-lcov --report-dir=.nyc_output > coverage.lcov
-          cat coverage.lcov
-          npx coveralls < coverage.lcov
+        run: npx nyc report --reporter=text-lcov --report-dir=.nyc_output && npx coveralls < .nyc_output/lcov-report/lcov.info
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
