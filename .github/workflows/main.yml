@@ -32,7 +32,7 @@ jobs:
       - name: Run tests and coverage
         run: |
           npm test -- --coverage
-          nyc report --reporter=text-lcov > ./coverage/lcov-report/lcov.info
+          nyc report --reporter=text-lcov > ./coverage/lcov.info
           
       - name: Coveralls
         uses: coverallsapp/github-action@v2
