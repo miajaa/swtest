@@ -33,7 +33,7 @@ jobs:
         run: npm test -- --coverage
 
       - name: Coveralls
-        uses: coverallsapp/github-action@v1
+        uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: ./node_modules/coverage/lcov.info
+          path-to-lcov: ./node_modules/lcov-parse/coverage/lcov-report/lcov.info
