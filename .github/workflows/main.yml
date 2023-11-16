@@ -10,6 +10,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x] 
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -33,7 +34,7 @@ jobs:
         run: npm test -- --coverage
 
       - name: Coveralls
-	run: npm run coverage
+        run: npm run coverage
         uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
