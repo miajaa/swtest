@@ -9,13 +9,8 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "nyc": {
-    "report-dir": ".nyc_output",
-    "reporter": [
-      "text",
-      "text-summary",
-      "html",
-      "lcov"
-    ],
+    "report-dir": "./coverage",
+    "reporter": ["text", "text-summary", "html", "lcov"],
     "all": true
   },
   "author": "",
