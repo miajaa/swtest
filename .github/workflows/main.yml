@@ -34,7 +34,6 @@ jobs:
 
       - name: Coveralls
         run: npm run coverage
-        uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: ./node_modules/lcov-parse/coverage/lcov.info
