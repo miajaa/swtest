@@ -10,7 +10,6 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x] 
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -34,6 +33,7 @@ jobs:
         run: npm test -- --coverage
 
       - name: Coveralls
-        run: |
-          npm run coverage
-          npx coveralls --token=${{ secrets.GITHUB_TOKEN }}
+        uses: coverallsapp/github-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: ./node_modules/lcov-parse/coverage/lcov-report/lcov.info
