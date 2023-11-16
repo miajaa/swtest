@@ -29,14 +29,15 @@ jobs:
       - name: Install nyc
         run: npm install nyc
 
-      - name: Debug Coverage Directory
-        run: ls -R ./coverage
-
       - name: Run tests and coverage
+        run: npm test -- --coverage
+
+      - name: Debug Coverage Directory
         run: |
-          npm test -- --coverage
-          nyc report --reporter=text-lcov --report-dir=./coverage/lcov-report
-          
+          find . -name 'coverage'
+          find . -name 'lcov-report'
+          cat ./coverage/lcov-report/lcov.info
+
       - name: Coveralls
         uses: coverallsapp/github-action@v2
         with:
