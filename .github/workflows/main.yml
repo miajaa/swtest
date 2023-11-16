@@ -36,9 +36,10 @@ jobs:
         run: |
           find . -name 'coverage'
           find . -name 'lcov-report'
-          cat ./coverage/lcov-report/lcov.info
+          cat ./node_modules/lcov-parse/coverage/lcov-report/lcov.info
 
       - name: Coveralls
         uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: ./node_modules/lcov-parse/coverage/lcov-report/lcov.info
