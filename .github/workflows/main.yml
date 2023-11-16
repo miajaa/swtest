@@ -32,12 +32,6 @@ jobs:
       - name: Run tests and coverage
         run: npm test -- --coverage
 
-      - name: Debug Coverage Directory
-        run: |
-          find . -name 'coverage'
-          find . -name 'lcov-report'
-          cat ./node_modules/lcov-parse/coverage/lcov-report/lcov.info
-
       - name: Coveralls
         uses: coverallsapp/github-action@v2
         with:
