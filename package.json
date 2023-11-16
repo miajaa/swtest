@@ -10,7 +10,12 @@
   },
   "nyc": {
     "report-dir": ".nyc_output",
-    "reporter": ["text", "text-summary", "html", "lcov"],
+    "reporter": [
+      "text",
+      "text-summary",
+      "html",
+      "lcov"
+    ],
     "all": true
   },
   "author": "",
