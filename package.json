@@ -6,15 +6,11 @@
   "type": "module",
   "scripts": {
     "test": "nyc --reporter=html --reporter=text ./node_modules/.bin/mocha",
-    "coverage": "nyc npm test && nyc report --reporter=text-lcov --report-dir=.nyc_output && npx coveralls < .nyc_output/lcov-report/lcov.info"
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "nyc": {
     "report-dir": ".nyc_output",
-    "reporter": [
-      "text",
-      "text-summary",
-      "html"
-    ],
+    "reporter": ["text", "text-summary", "html", "lcov"],
     "all": true
   },
   "author": "",
